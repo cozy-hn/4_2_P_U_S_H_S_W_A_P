@@ -23,13 +23,9 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 	if (!new)
 		return ;
-	if (!*lst)
-		*lst = new;
+    tmp = ft_lstlast(*lst);
+	if (tmp)
+		tmp->next = new;
 	else
-	{
-		tmp = *lst;
-		while (tmp->next)
-			tmp = tmp->next;
-		(tmp)->next = new;
-	}
+		*lst = new;
 }

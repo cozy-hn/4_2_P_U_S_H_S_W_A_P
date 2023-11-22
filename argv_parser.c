@@ -29,7 +29,7 @@ int ft_atoi(const char *str)
             print_error();
     }
     result *= sign;
-    if (result > INT_MAX || result < INT_MIN)
+    if (result > 2147483647 || result < -2147483648)
         print_error();
     return ((int)result);
 }
@@ -77,8 +77,8 @@ int argv_parser(int argc, char **argv, t_stack *a)
     int arr_size;
     char **arr;
 
-    a->size = 0;
-    i== 0;
+    a->top = NULL;
+    i= 0;
     while (++i < argc)
     {
         arr = ft_split(argv[i], ' ');

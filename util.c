@@ -6,6 +6,16 @@ void print_error()
     exit(1);
 }
 
+void	*ft_memset(void *str, int value, size_t size)
+{
+	unsigned char	*tmp;
+
+	tmp = (unsigned char *)str;
+	while (size--)
+		*tmp++ = value;
+	return (str);
+}
+
 void	*ft_calloc(size_t count, size_t size)
 {
 	unsigned char	*rtm;
