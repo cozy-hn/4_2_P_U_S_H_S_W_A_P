@@ -39,5 +39,6 @@ typedef struct s_stack
 }	t_stack;
 
 void print_error();
+t_list	*ft_lstlast(t_list *lst);
 
 #endif
