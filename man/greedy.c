@@ -6,7 +6,7 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 17:09:58 by jiko              #+#    #+#             */
-/*   Updated: 2023/11/25 21:55:38 by jiko             ###   ########.fr       */
+/*   Updated: 2023/11/25 22:29:16 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int get_cost_a(t_stack *a, int num)
 	last = ft_lstlast(a->top)->num;
 	if (num > last && tmp->num > num)
 		return (0);
-	while (i - 1 < a->size)
+	while (i + 1 < a->size)
 	{
 		if (tmp->num < num && tmp->next->num > num)
 			return (i + 1);

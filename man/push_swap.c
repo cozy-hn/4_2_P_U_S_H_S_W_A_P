@@ -6,7 +6,7 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:13:24 by jiko              #+#    #+#             */
-/*   Updated: 2023/11/25 21:25:33 by jiko             ###   ########.fr       */
+/*   Updated: 2023/11/25 22:29:34 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,8 @@ void size_3(t_stack *s)
 
 static void size_x( t_stack *a, t_stack *b, int *pivot)
 {
-    ft_printf("get_pivot\n");
     get_pivot(a, pivot);
-    ft_printf("divide\n");
     divide(a, b, pivot);
-    ft_printf("greedy\n");
     while (b->size > 0)
         greedy(a, b);
     sort_a(a);
