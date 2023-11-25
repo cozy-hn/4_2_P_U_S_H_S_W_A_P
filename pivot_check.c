@@ -6,7 +6,7 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:13:19 by jiko              #+#    #+#             */
-/*   Updated: 2023/11/25 17:13:48 by jiko             ###   ########.fr       */
+/*   Updated: 2023/11/25 19:55:10 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,6 @@ void get_pivot(t_stack *s, int *pivot)
 	pivot[0] = arr[s->size / 3];
 	pivot[1] = arr[s->size / 3 * 2];
 	pivot[2] = arr[s->size - 3];
-	pivot[3] = arr[s->size - 2];
-	pivot[4] = arr[s->size - 1];
 	free(arr);
 }
 
@@ -96,10 +94,10 @@ void divide(t_stack *a, t_stack *b, int *pivot)
 	}
 	while (a->size > 3)
 	{
-		if (a->top->num != pivot[2] && a->top->num != pivot[3] && a->top->num != pivot[4])
-			rx('a', a);
-		else
+		if (a->top->num != pivot[2])
 			px('b', b, a);
+		else
+			rx('a', a);
 	}
 	size_3(a);
 }

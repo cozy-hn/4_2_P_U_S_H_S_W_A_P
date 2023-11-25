@@ -6,11 +6,38 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:13:24 by jiko              #+#    #+#             */
-/*   Updated: 2023/11/25 17:12:35 by jiko             ###   ########.fr       */
+/*   Updated: 2023/11/25 20:09:06 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void sort_a(t_stack *a)
+{
+    int i;
+    int j;
+    int prev;
+    t_list *tmp;
+
+    prev= a->top->num;
+    tmp = a->top->next;
+    i = 1;
+    while (i < a->size)
+    {
+        if (prev > tmp->num)
+            break;
+        prev = tmp->num;
+        tmp = tmp->next;
+        i++;
+    }
+    j = -1;
+    if (i < a->size / 2)
+        while (++j < i)
+            rx('a', a);
+    else
+        while (++j < a->size - i)
+            rrx('a', a);
+}
 
 void size_2(t_stack *s)
 {
@@ -51,7 +78,7 @@ void size_x( t_stack *a, t_stack *b, int *pivot)
      divide(a, b, pivot);
      while (b->size > 0)
         greedy(a, b);
-     
+    sort_a(a);
 }
 
 int main(int argc, char **argv)
@@ -59,7 +86,7 @@ int main(int argc, char **argv)
     t_stack stack_a;
     t_stack stack_b;
     int size;
-    int pivot[5];
+    int pivot[3];
 
     stack_a.size = 0;
     stack_b.size = 0;
