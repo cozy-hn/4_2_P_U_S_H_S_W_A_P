@@ -6,67 +6,41 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 17:09:58 by jiko              #+#    #+#             */
-/*   Updated: 2023/11/25 23:35:18 by jiko             ###   ########.fr       */
+/*   Updated: 2023/11/26 01:10:09 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// static int get_cost_a(t_stack *a, int num)
-// {
-// 	int i;
-// 	int last;
-// 	int min;
-// 	int min_idx;
-// 	t_list *tmp;
-	
-// 	i = 0;
-// 	min = 2147483647;
-// 	tmp = a->top;
-// 	last = ft_lstlast(a->top)->num;
-// 	if (num > last && tmp->num > num)
-// 		return (0);
-// 	while (i + 1 < a->size)
-// 	{
-// 		if (tmp->num < num && tmp->next->num > num)
-// 			return (i + 1);
-// 		if (tmp->num <= min)
-// 		{
-// 			min = tmp->num;
-// 			min_idx = i;
-// 		}
-// 		tmp = tmp->next;
-// 		i++;
-// 	}
-// 	return (min_idx - 1);
-// }
-int	get_cost_a(t_stack *a, long long value)
+static int get_cost_a(t_stack *a, int num)
 {
-	int			min_i;
-	int			i;
-	long long	min_delta;
-	t_list		*tmp;
-
-	tmp = a->top;
+	int i;
+	int last;
+	int min;
+	int min_idx;
+	t_list *tmp;
+	
 	i = 0;
-	min_delta = 2147483648 * 2;
-	while (i < a->size)
+	min = 2147483647;
+	tmp = a->top;
+	last = ft_lstlast(a->top)->num;
+	if (num > last && tmp->num > num)
+		return (0);
+	while (tmp)
 	{
-		if (value < tmp->num)
+		if (tmp->num < num && tmp->next && tmp->next->num > num)
+			return (i + 1);
+		if (tmp->num <= min)
 		{
-			if (tmp->num - value < min_delta)
-			{
-				min_delta = tmp->num - value;
-				min_i = i;
-			}
+			min = tmp->num;
+			min_idx = i;
 		}
 		tmp = tmp->next;
 		i++;
 	}
-	return (min_i);
+	return (min_idx);
 }
 
-	
 static t_cost get_cost(t_stack *a, t_stack *b, int i, int num)
 {
 	int	best_cost;
