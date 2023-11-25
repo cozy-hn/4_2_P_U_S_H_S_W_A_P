@@ -6,7 +6,7 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:13:19 by jiko              #+#    #+#             */
-/*   Updated: 2023/11/25 21:54:27 by jiko             ###   ########.fr       */
+/*   Updated: 2023/11/26 01:22:00 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void divide(t_stack *a, t_stack *b, int *pivot)
 	int size;
 
 	size = a->size;
-	i = 0;
+	i = 1;
 	while ( i < (size * 2) / 3)
 	{
 		if (a->top->num < pivot[1])
