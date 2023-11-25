@@ -6,7 +6,7 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:13:37 by jiko              #+#    #+#             */
-/*   Updated: 2023/11/26 01:33:42 by jiko             ###   ########.fr       */
+/*   Updated: 2023/11/26 01:55:47 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ void argv_parser(int argc, char **argv, t_stack *a)
             tmp = is_vaild(arr[j]);
             is_dup(tmp, a);
             ft_lstadd_back(&a->top, ft_lstnew(tmp));
+            free(arr[j]);
         }
         free(arr);
     }
