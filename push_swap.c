@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/25 16:13:24 by jiko              #+#    #+#             */
+/*   Updated: 2023/11/25 17:12:35 by jiko             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void size_2(t_stack *s)
@@ -33,9 +45,13 @@ void size_3(t_stack *s)
         sx('a', s);
 }
 
-void size_x( t_stack *a, t_stack *b)
+void size_x( t_stack *a, t_stack *b, int *pivot)
 {
-    
+     get_pivot(a, pivot);
+     divide(a, b, pivot);
+     while (b->size > 0)
+        greedy(a, b);
+     
 }
 
 int main(int argc, char **argv)
@@ -43,6 +59,7 @@ int main(int argc, char **argv)
     t_stack stack_a;
     t_stack stack_b;
     int size;
+    int pivot[5];
 
     stack_a.size = 0;
     stack_b.size = 0;
@@ -57,6 +74,6 @@ int main(int argc, char **argv)
     else if (size == 3)
         size_3(&stack_a);
     else
-        size_x(&stack_a, &stack_b);
+        size_x(&stack_a, &stack_b, pivot);
     exit(0);
 }

@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiko <jiko@student.42seoul.k>              +#+  +:+       +#+        */
+/*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 19:37:26 by jiko              #+#    #+#             */
-/*   Updated: 2023/08/15 19:37:27 by jiko             ###   ########.fr       */
+/*   Updated: 2023/11/25 17:20:29 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
 # include <stdlib.h>
-// # include <unistd.h>
-// # include "./ft_printf/ft_printf.h"
+# include <unistd.h>
+# include "./ft_printf/ft_printf.h"
 
 typedef struct s_cost
 {
@@ -24,7 +25,8 @@ typedef struct s_cost
     int	rra;
     int	rrb;
     int	rrr;
-}	t_cost;
+    int cost;
+}    t_cost;
 
 typedef struct s_list
 {

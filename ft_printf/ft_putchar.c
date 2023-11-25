@@ -1,43 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_ctl.c                                         :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/25 16:13:50 by jiko              #+#    #+#             */
-/*   Updated: 2023/11/25 16:13:51 by jiko             ###   ########.fr       */
+/*   Created: 2023/03/17 15:09:36 by jiko              #+#    #+#             */
+/*   Updated: 2023/04/12 15:34:59 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-t_list	*ft_lstlast(t_list *lst)
+int	ft_putchar(char c, int *count)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
-}
-
-void	ft_lstadd_front(t_list **lst, t_list *new)
-{
-	if (!new)
-		return ;
-	new->next = *lst;
-	*lst = new;
-}
-
-void	ft_lstadd_back(t_list **lst, t_list *new)
-{
-	t_list	*tmp;
-
-	if (!new)
-		return ;
-    tmp = ft_lstlast(*lst);
-	if (tmp)
-		tmp->next = new;
-	else
-		*lst = new;
+	if (write(1, &c, 1) == -1)
+	{
+		*count = -1;
+		return (-1);
+	}
+	(*count)++;
+	return (0);
 }

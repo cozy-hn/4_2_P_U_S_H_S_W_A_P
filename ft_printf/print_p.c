@@ -1,43 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_ctl.c                                         :+:      :+:    :+:   */
+/*   print_p.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/25 16:13:50 by jiko              #+#    #+#             */
-/*   Updated: 2023/11/25 16:13:51 by jiko             ###   ########.fr       */
+/*   Created: 2023/05/07 04:06:22 by jiko              #+#    #+#             */
+/*   Updated: 2023/05/07 04:06:26 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	print_p(va_list *ap, int *count)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
-}
+	char	*tmp;
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
-{
-	if (!new)
+	ft_putstr("0x", count);
+	if (*count == -1)
 		return ;
-	new->next = *lst;
-	*lst = new;
-}
-
-void	ft_lstadd_back(t_list **lst, t_list *new)
-{
-	t_list	*tmp;
-
-	if (!new)
-		return ;
-    tmp = ft_lstlast(*lst);
-	if (tmp)
-		tmp->next = new;
+	tmp = va_arg(*ap, void *);
+	if (tmp == NULL)
+		ft_putchar('0', count);
 	else
-		*lst = new;
+		print_adress((unsigned long long)tmp, count);
 }
