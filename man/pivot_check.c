@@ -6,13 +6,13 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:13:19 by jiko              #+#    #+#             */
-/*   Updated: 2023/11/25 19:55:10 by jiko             ###   ########.fr       */
+/*   Updated: 2023/11/25 21:54:27 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_arr(int *arr, int size)
+static void sort_arr(int *arr, int size)
 {
 	int i;
 	int j;
@@ -36,7 +36,7 @@ void sort_arr(int *arr, int size)
 	}
 }
 
-int is_sorted(t_stack *s)
+static int is_sorted(t_stack *s)
 {
 	t_list *tmp;
 
@@ -68,8 +68,8 @@ void get_pivot(t_stack *s, int *pivot)
 	}
 	sort_arr(arr, s->size);
 	pivot[0] = arr[s->size / 3];
-	pivot[1] = arr[s->size / 3 * 2];
-	pivot[2] = arr[s->size - 3];
+	pivot[1] = arr[(s->size * 2) / 3];
+	pivot[2] = arr[s->size - 1];
 	free(arr);
 }
 

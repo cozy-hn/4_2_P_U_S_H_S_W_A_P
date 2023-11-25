@@ -6,7 +6,7 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:13:42 by jiko              #+#    #+#             */
-/*   Updated: 2023/11/25 16:13:43 by jiko             ###   ########.fr       */
+/*   Updated: 2023/11/25 21:51:37 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,55 +55,27 @@ int px(char x, t_stack *a, t_stack *b)
     return (1);
 }
 
-int rx(char x, t_stack *s)
+size_t ft_strlen(const char *s)
 {
-    t_list *tmp;
+  int n;
 
-    if (s->size < 2)
-        return (0);
-    tmp = s->top;
-    s->top = s->top->next;
-    ft_lstadd_back(&s->top, tmp);
-    ft_lstlast(s->top)->next = NULL;
-    if (x == 'a')
-        ft_printf("ra\n");
-    else if (x == 'b')
-        ft_printf("rb\n");
-    return (1);
+  n = 0;
+  while (s[n])
+    n++;
+  return (n);
 }
 
-int rr(t_stack *a, t_stack *b)
+size_t ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-    rx('a', a);
-    rx('b', b);
-    ft_printf("rr\n");
-    return (1);
-}
+  unsigned int i;
 
-int rrx(char x, t_stack *s)
-{
-    t_list *tmp;
-    t_list *last;
-
-    if (s->size < 2)
-        return (0);
-    tmp = s->top;
-    last = ft_lstlast(s->top);
-    while (tmp->next != last)
-        tmp = tmp->next;
-    tmp->next = NULL;
-    ft_lstadd_front(&s->top, last);
-    if (x == 'a')
-        ft_printf("rra\n");
-    else if (x == 'b')
-        ft_printf("rrb\n");
-    return (1);
-}
-
-int rrr(t_stack *a, t_stack *b)
-{
-    rrx('a', a);
-    rrx('b', b);
-    ft_printf("rrr\n");
-    return (1);
+  i = 0;
+  if (dstsize == 0)
+    return (ft_strlen(src));
+  while (i < dstsize - 1 && *(src + i)) {
+    *(dst + i) = *(src + i);
+    i++;
+  }
+  *(dst + i) = '\0';
+  return (ft_strlen(src));
 }

@@ -6,13 +6,13 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:13:37 by jiko              #+#    #+#             */
-/*   Updated: 2023/11/25 16:13:39 by jiko             ###   ########.fr       */
+/*   Updated: 2023/11/25 21:16:10 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void arr_len(char **arr, int *arr_size)
+static void arr_len(char **arr, int *arr_size)
 {
     int i;
 
@@ -22,7 +22,7 @@ void arr_len(char **arr, int *arr_size)
     *arr_size = i;
 }
 
-int ft_atoi(const char *str)
+static int ft_atoi(const char *str)
 {
     int i;
     int sign;
@@ -52,7 +52,7 @@ int ft_atoi(const char *str)
 }
 
 
-int is_vaild(char *str)
+static int is_vaild(char *str)
 {
     int i;
 
@@ -69,7 +69,7 @@ int is_vaild(char *str)
     return (ft_atoi(str));
 }
 
-void is_dup(int num, t_stack *a)
+static void is_dup(int num, t_stack *a)
 {
     int i;
     t_list *head;
@@ -86,7 +86,7 @@ void is_dup(int num, t_stack *a)
     a->size++;
 }
 
-int argv_parser(int argc, char **argv, t_stack *a)
+void argv_parser(int argc, char **argv, t_stack *a)
 {
     int i;
     int j;
@@ -111,4 +111,5 @@ int argv_parser(int argc, char **argv, t_stack *a)
         }
         free(arr);
     }
+    
 }

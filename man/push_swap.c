@@ -6,13 +6,13 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:13:24 by jiko              #+#    #+#             */
-/*   Updated: 2023/11/25 20:09:06 by jiko             ###   ########.fr       */
+/*   Updated: 2023/11/25 21:25:33 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_a(t_stack *a)
+static void sort_a(t_stack *a)
 {
     int i;
     int j;
@@ -39,7 +39,7 @@ void sort_a(t_stack *a)
             rrx('a', a);
 }
 
-void size_2(t_stack *s)
+static void size_2(t_stack *s)
 {
     if (s->top->num > s->top->next->num)
         sx('a', s);
@@ -72,11 +72,14 @@ void size_3(t_stack *s)
         sx('a', s);
 }
 
-void size_x( t_stack *a, t_stack *b, int *pivot)
+static void size_x( t_stack *a, t_stack *b, int *pivot)
 {
-     get_pivot(a, pivot);
-     divide(a, b, pivot);
-     while (b->size > 0)
+    ft_printf("get_pivot\n");
+    get_pivot(a, pivot);
+    ft_printf("divide\n");
+    divide(a, b, pivot);
+    ft_printf("greedy\n");
+    while (b->size > 0)
         greedy(a, b);
     sort_a(a);
 }
@@ -92,7 +95,7 @@ int main(int argc, char **argv)
     stack_b.size = 0;
     if (argc == 1)
         exit(0);
-    parse_argv(argc, argv, &stack_a);
+    argv_parser(argc, argv, &stack_a);
     size = stack_a.size;
     if (size == 1)
         exit(0);

@@ -6,13 +6,13 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 17:09:58 by jiko              #+#    #+#             */
-/*   Updated: 2023/11/25 19:53:10 by jiko             ###   ########.fr       */
+/*   Updated: 2023/11/25 21:55:38 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int get_cost_a(t_stack *a, int num)
+static int get_cost_a(t_stack *a, int num)
 {
 	int i;
 	int last;
@@ -42,7 +42,7 @@ int get_cost_a(t_stack *a, int num)
 }
 
 	
-t_cost get_cost(t_stack *a, t_stack *b, int i, int num)
+static t_cost get_cost(t_stack *a, t_stack *b, int i, int num)
 {
 	int	best_cost;
 	int arr[4];
@@ -68,7 +68,7 @@ t_cost get_cost(t_stack *a, t_stack *b, int i, int num)
 	return (cost);
 }
 
-void command_operation(t_cost cost, t_stack *a, t_stack *b)
+static void command_operation(t_cost cost, t_stack *a, t_stack *b)
 {
 	while(cost.cost--)
 	{
