@@ -6,7 +6,7 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 21:19:02 by jiko              #+#    #+#             */
-/*   Updated: 2023/11/25 21:41:00 by jiko             ###   ########.fr       */
+/*   Updated: 2023/11/25 23:55:24 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int rx(char x, t_stack *s)
 
 int rr(t_stack *a, t_stack *b)
 {
-    rx('a', a);
-    rx('b', b);
+    rx('r', a);
+    rx('r', b);
     ft_printf("rr\n");
     return (1);
 }
@@ -64,8 +64,8 @@ int rrx(char x, t_stack *s)
 
 int rrr(t_stack *a, t_stack *b)
 {
-    rrx('a', a);
-    rrx('b', b);
+    rrx('r', a);
+    rrx('r', b);
     ft_printf("rrr\n");
     return (1);
 }

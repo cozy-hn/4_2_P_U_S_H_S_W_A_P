@@ -6,7 +6,7 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:13:24 by jiko              #+#    #+#             */
-/*   Updated: 2023/11/25 22:29:34 by jiko             ###   ########.fr       */
+/*   Updated: 2023/11/25 23:52:56 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void sort_a(t_stack *a)
     else
         while (++j < a->size - i)
             rrx('a', a);
-}
+} 
 
 static void size_2(t_stack *s)
 {
@@ -96,7 +96,7 @@ int main(int argc, char **argv)
     size = stack_a.size;
     if (size == 1)
         exit(0);
-    if (size == 2)
+    else if (size == 2)
         size_2(&stack_a);
     else if (size == 3)
         size_3(&stack_a);
