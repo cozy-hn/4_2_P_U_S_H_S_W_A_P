@@ -6,7 +6,7 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:13:37 by jiko              #+#    #+#             */
-/*   Updated: 2023/11/26 01:55:47 by jiko             ###   ########.fr       */
+/*   Updated: 2023/11/26 18:30:46 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ static int ft_atoi(const char *str)
   }
     while (str[i])
     {
-        if (str[i] >= '0' && str[i] <= '9')
+        if (str[i] >= '0' && str[i] <= '9' && i < 13)
             result = result * 10 + (str[i] - '0');
         else
             print_error();
         i++;
     }
     result *= sign;
-    if (result > 2147483647 || result < -2147483648)
+    if (result > 2147483647 || result < -2147483648LL)
         print_error();
     return ((int)result);
 }
