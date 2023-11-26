@@ -6,17 +6,17 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:13:19 by jiko              #+#    #+#             */
-/*   Updated: 2023/11/26 01:22:00 by jiko             ###   ########.fr       */
+/*   Updated: 2023/11/26 18:45:10 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void sort_arr(int *arr, int size)
+static void	sort_arr(int *arr, int size)
 {
-	int i;
-	int j;
-	int tmp;
+	int	i;
+	int	j;
+	int	tmp;
 
 	i = 0;
 	while (i < size - 1)
@@ -36,9 +36,9 @@ static void sort_arr(int *arr, int size)
 	}
 }
 
-static int is_sorted(t_stack *s)
+static int	is_sorted(t_stack *s)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = s->top;
 	while (tmp->next)
@@ -50,11 +50,11 @@ static int is_sorted(t_stack *s)
 	return (1);
 }
 
-void get_pivot(t_stack *s, int *pivot)
+void	get_pivot(t_stack *s, int *pivot)
 {
-	int i;
-	int *arr;
-	t_list *tmp;
+	int		i;
+	int		*arr;
+	t_list	*tmp;
 
 	tmp = s->top;
 	if (is_sorted(s))
@@ -73,14 +73,14 @@ void get_pivot(t_stack *s, int *pivot)
 	free(arr);
 }
 
-void divide(t_stack *a, t_stack *b, int *pivot)
+void	divide(t_stack *a, t_stack *b, int *pivot)
 {
-	int i;
-	int size;
+	int	i;
+	int	size;
 
 	size = a->size;
 	i = 1;
-	while ( i < (size * 2) / 3)
+	while (i < (size * 2) / 3)
 	{
 		if (a->top->num < pivot[1])
 		{

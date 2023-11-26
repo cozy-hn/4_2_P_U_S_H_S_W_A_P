@@ -6,19 +6,19 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:13:31 by jiko              #+#    #+#             */
-/*   Updated: 2023/11/25 19:42:56 by jiko             ###   ########.fr       */
+/*   Updated: 2023/11/26 18:50:01 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void print_error()
+void	print_error(void)
 {
-    write(2, "Error\n", 6);
-    exit(1);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
-int min_max(int a, int b, int flag)
+int	min_max(int a, int b, int flag)
 {
 	if (flag == 0)
 	{
@@ -34,11 +34,11 @@ int min_max(int a, int b, int flag)
 	}
 }
 
-int get_min_idx_arr(int *arr, int size)
+int	get_min_idx_arr(int *arr, int size)
 {
-	int i;
-	int min;
-	int min_idx;
+	int	i;
+	int	min;
+	int	min_idx;
 
 	i = 0;
 	min = 2147483647;

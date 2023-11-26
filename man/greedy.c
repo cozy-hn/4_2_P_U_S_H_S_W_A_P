@@ -6,20 +6,20 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 17:09:58 by jiko              #+#    #+#             */
-/*   Updated: 2023/11/26 01:10:09 by jiko             ###   ########.fr       */
+/*   Updated: 2023/11/26 18:47:16 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int get_cost_a(t_stack *a, int num)
+static int	get_cost_a(t_stack *a, int num)
 {
-	int i;
-	int last;
-	int min;
-	int min_idx;
-	t_list *tmp;
-	
+	int		i;
+	int		last;
+	int		min;
+	int		min_idx;
+	t_list	*tmp;
+
 	i = 0;
 	min = 2147483647;
 	tmp = a->top;
@@ -41,12 +41,12 @@ static int get_cost_a(t_stack *a, int num)
 	return (min_idx);
 }
 
-static t_cost get_cost(t_stack *a, t_stack *b, int i, int num)
+static t_cost	get_cost(t_stack *a, t_stack *b, int i, int num)
 {
-	int	best_cost;
-	int arr[4];
-	t_cost cost;
-	
+	int		best_cost;
+	int		arr[4];
+	t_cost	cost;
+
 	cost.rb = i;
 	cost.rrb = b->size - i;
 	cost.ra = get_cost_a(a, num);
@@ -67,9 +67,9 @@ static t_cost get_cost(t_stack *a, t_stack *b, int i, int num)
 	return (cost);
 }
 
-static void command_operation(t_cost cost, t_stack *a, t_stack *b)
+static void	command_operation(t_cost cost, t_stack *a, t_stack *b)
 {
-	while(cost.cost--)
+	while (cost.cost--)
 	{
 		if (cost.ra)
 			cost.ra -= rx('a', a);
@@ -86,13 +86,13 @@ static void command_operation(t_cost cost, t_stack *a, t_stack *b)
 	}
 	px('a', a, b);
 }
-	
+
 void	greedy(t_stack *a, t_stack *b)
 {
-	int i;
-	t_cost cost;
-	t_cost min_cost;
-	t_list *tmp;
+	int		i;
+	t_cost	cost;
+	t_cost	min_cost;
+	t_list	*tmp;
 
 	tmp = b->top;
 	i = 0;
