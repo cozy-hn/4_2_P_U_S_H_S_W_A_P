@@ -9,12 +9,12 @@ MAN_SRC = $(addprefix $(MAN_DIR), $(addsuffix .c, $(MAN_BASE)))
 MAN_OBJ = $(addprefix $(MAN_DIR), $(addsuffix .o, $(MAN_BASE)))
 NAME = push_swap
 
-# BON_DIR = ./bon/
+BON_DIR = ./bon/
 # BON_BASE = checker ft_atoll ft_split list_utils parse_argv command_1 command_2 \
 # 	get_next_line_bonus/get_next_line get_next_line_bonus/get_next_line_utils
 # BON_SRC = $(addprefix $(BON_DIR), $(addsuffix _bonus.c, $(BON_BASE)))
 # BON_OBJ = $(addprefix $(BON_DIR), $(addsuffix _bonus.o, $(BON_BASE)))
-# BON_NAME = checker
+BON_NAME = checker
 
 all : $(NAME)
 
