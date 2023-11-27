@@ -26,6 +26,7 @@ static int is_valid_cmd(t_stack *a, t_stack *b, int len, char *cmd)
 		return(rrr(a, b));
 	return (-1);
 }
+
 static void excute(t_stack *a, t_stack *b, char *cmd)
 {
 	int	flag;
@@ -33,12 +34,14 @@ static void excute(t_stack *a, t_stack *b, char *cmd)
 	flag = is_valid_cmd(a, b, ft_strlen(cmd), cmd);
 	if (flag == -1)
 		print_error();
+	free(cmd);
+	cmd = get_next_line(0);
 }
+
 int	main(int argc, char **argv)
 {
 	t_stack	stack_a;
 	t_stack	stack_b;
-	int		size;
 	char    *cmd;
 
 	stack_a.size = 0;
@@ -46,17 +49,14 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		exit(0);
 	argv_parser(argc, argv, &stack_a);
-	size = stack_a.size;
 	cmd = get_next_line(0);
 	while (cmd)
-	{
 		excute(&stack_a, &stack_b, cmd);
-		free(cmd);
-		cmd = get_next_line(0);
-	}
 	if (is_sorted(&stack_a) && stack_b.size == 0)
+	{
 		if(write(1, "OK\n", 3) != 3)
 			print_error();
+	}
 	else
 		if(write(1, "KO\n", 3) != 3)
 			print_error();

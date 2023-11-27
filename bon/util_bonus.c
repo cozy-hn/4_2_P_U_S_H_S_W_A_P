@@ -18,7 +18,7 @@ void	print_error(void)
 	exit(1);
 }
 
-void	*ft_memset(void *str, int value, size_t size)
+static void	*ft_memset(void *str, int value, size_t size)
 {
 	unsigned char	*tmp;
 

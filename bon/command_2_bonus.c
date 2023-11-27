@@ -47,3 +47,17 @@ int	rrr(t_stack *a, t_stack *b)
 	rrx(b);
 	return (1);
 }
+
+int	is_sorted(t_stack *s)
+{
+	t_list	*tmp;
+
+	tmp = s->top;
+	while (tmp->next)
+	{
+		if (tmp->num > tmp->next->num)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
