@@ -35,7 +35,6 @@ static void excute(t_stack *a, t_stack *b, char *cmd)
 	if (flag == -1)
 		print_error();
 	free(cmd);
-	cmd = get_next_line(0);
 }
 
 int	main(int argc, char **argv)
@@ -51,7 +50,10 @@ int	main(int argc, char **argv)
 	argv_parser(argc, argv, &stack_a);
 	cmd = get_next_line(0);
 	while (cmd)
+	{
 		excute(&stack_a, &stack_b, cmd);
+		cmd = get_next_line(0);
+	}
 	if (is_sorted(&stack_a) && stack_b.size == 0)
 	{
 		if(write(1, "OK\n", 3) != 3)
