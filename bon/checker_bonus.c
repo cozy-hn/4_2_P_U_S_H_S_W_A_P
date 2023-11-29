@@ -1,33 +1,45 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/29 17:04:07 by jiko              #+#    #+#             */
+/*   Updated: 2023/11/29 17:04:48 by jiko             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap_bonus.h"
 
-static int is_valid_cmd(t_stack *a, t_stack *b, int len, char *cmd)
+static int	is_valid_cmd(t_stack *a, t_stack *b, int len, char *cmd)
 {
 	if (len == 3 && cmd[0] == 's' && cmd[1] == 'a' )
-		return(sx(a));
+		return (sx(a));
 	else if (len == 3 && cmd[0] == 's' && cmd[1] == 'b' )
-		return(sx(b));
+		return (sx(b));
 	else if (len == 3 && cmd[0] == 's' && cmd[1] == 's' )
-		return(ss(a, b));
+		return (ss(a, b));
 	else if (len == 3 && cmd[0] == 'p' && cmd[1] == 'a' )
-		return(px(a, b));
+		return (px(a, b));
 	else if (len == 3 && cmd[0] == 'p' && cmd[1] == 'b' )
-		return(px(b, a));
+		return (px(b, a));
 	else if (len == 3 && cmd[0] == 'r' && cmd[1] == 'a' )
-		return(rx(a));
+		return (rx(a));
 	else if (len == 3 && cmd[0] == 'r' && cmd[1] == 'b' )
-		return(rx(b));
+		return (rx(b));
 	else if (len == 3 && cmd[0] == 'r' && cmd[1] == 'r' )
-		return(rr(a, b));
+		return (rr(a, b));
 	else if (len == 4 && cmd[0] == 'r' && cmd[1] == 'r' && cmd[2] == 'a')
-		return(rrx(a));
+		return (rrx(a));
 	else if (len == 4 && cmd[0] == 'r' && cmd[1] == 'r' && cmd[2] == 'b')
-		return(rrx(b));
+		return (rrx(b));
 	else if (len == 4 && cmd[0] == 'r' && cmd[1] == 'r' && cmd[2] == 'r')
-		return(rrr(a, b));
+		return (rrr(a, b));
 	return (-1);
 }
 
-static void excute(t_stack *a, t_stack *b, char *cmd)
+static void	excute(t_stack *a, t_stack *b, char *cmd)
 {
 	int	flag;
 
@@ -41,7 +53,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	stack_a;
 	t_stack	stack_b;
-	char    *cmd;
+	char	*cmd;
 
 	stack_a.size = 0;
 	stack_b.size = 0;
@@ -56,11 +68,11 @@ int	main(int argc, char **argv)
 	}
 	if (is_sorted(&stack_a) && stack_b.size == 0)
 	{
-		if(write(1, "OK\n", 3) != 3)
+		if (write(1, "OK\n", 3) != 3)
 			print_error();
 	}
 	else
-		if(write(1, "KO\n", 3) != 3)
+		if (write(1, "KO\n", 3) != 3)
 			print_error();
 	exit(0);
 }
