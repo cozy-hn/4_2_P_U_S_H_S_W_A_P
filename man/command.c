@@ -6,7 +6,7 @@
 /*   By: jiko <jiko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:13:42 by jiko              #+#    #+#             */
-/*   Updated: 2023/11/26 18:42:31 by jiko             ###   ########.fr       */
+/*   Updated: 2023/11/29 22:51:18 by jiko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	sx(char x, t_stack *s)
 
 int	ss(t_stack *a, t_stack *b)
 {
-	sx('a', a);
-	sx('b', b);
+	sx('s', a);
+	sx('s', b);
 	ft_printf("ss\n");
 	return (1);
 }
